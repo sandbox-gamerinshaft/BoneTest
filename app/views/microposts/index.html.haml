@@ -5,9 +5,13 @@
 
 :coffeescript
   $ ->
-
     ms = new BackboneSebone.Collections.MicropostsCollection(#{@microposts.to_json.html_safe})
     ms.each (m) ->
       view = new BackboneSebone.Views.Microposts.MicropostView({micropost: m})
       $("#microposts").append(view.render().el)
 
+    newView = new BackboneSebone.Views.Microposts.NewView({microposts: ms})
+    $("#new-micropost").html(newView.render().el)
+    microposts.on "add", (micropost) ->
+      view = new Sebone.Views.Microposts.MicropostView({micropost: micropost})
+      $("#microposts").append(view.render().el)

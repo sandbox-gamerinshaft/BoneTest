@@ -1,7 +1,7 @@
 BackboneSebone.Views.Microposts || = {}
 
-class BackboneSebone.Views.Microposts.MicropostView extends Backbone.View
-  template: JST["micropost/microposts/new"]
+class BackboneSebone.Views.Microposts.NewView extends Backbone.View
+  template: JST["micropost/new"]
   className: "new-micropost"
   tagName: "form"
 
@@ -11,7 +11,7 @@ class BackboneSebone.Views.Microposts.MicropostView extends Backbone.View
   constructor: (options) ->
     super()
     @microposts = options.microposts
-    @micropost  = new Sebone.Models.Micropost()
+    @micropost  = new BackboneSebone.Models.Micropost()
 
   render: ->
     @$el.html @template()
