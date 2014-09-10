@@ -1,19 +1,9 @@
-%h1 Listing microposts
-
-%table
-  %tr
-    %th Content
-    %th
-    %th
-    %th
-
-  - @microposts.each do |micropost|
-    %tr
-      %td= micropost.content
-      %td= link_to 'Show', micropost
-      %td= link_to 'Edit', edit_micropost_path(micropost)
-      %td= link_to 'Destroy', micropost, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
+#microposts
 
 = link_to 'New Micropost', new_micropost_path
+
+:coffeescript
+  $ ->
+    ms = new BackboneSebone.Collections.MicropostsCollection(#{@microposts.to_json.html_safe})
+    ms.each (m) ->
+      $("#microposts").append m.get("content") + "<br>"
