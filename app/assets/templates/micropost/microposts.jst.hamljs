@@ -1,0 +1,2 @@
+= micropost.get("id")
+= micropost.get("content")

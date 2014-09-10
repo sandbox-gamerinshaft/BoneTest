@@ -5,6 +5,7 @@
 :coffeescript
   $ ->
     ms = new BackboneSebone.Collections.MicropostsCollection(#{@microposts.to_json.html_safe})
-    view = new BackboneSebone.Views.Microposts.MicropostView()
-    $("#microposts").append(view.render().el)
+    ms.each (m) ->
+      view = new BackboneSebone.Views.Microposts.MicropostView({micropost: m})
+      $("#microposts").append(view.render().el)
 
