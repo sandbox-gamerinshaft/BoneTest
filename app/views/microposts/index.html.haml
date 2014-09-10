@@ -1,9 +1,11 @@
+#new-micropost
 #microposts
 
 = link_to 'New Micropost', new_micropost_path
 
 :coffeescript
   $ ->
+
     ms = new BackboneSebone.Collections.MicropostsCollection(#{@microposts.to_json.html_safe})
     ms.each (m) ->
       view = new BackboneSebone.Views.Microposts.MicropostView({micropost: m})
