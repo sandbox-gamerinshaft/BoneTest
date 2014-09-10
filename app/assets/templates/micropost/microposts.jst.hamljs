@@ -1,2 +1,4 @@
 = micropost.get("id")
 = micropost.get("content")
+%a#destroy
+  削除する
